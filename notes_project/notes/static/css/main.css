@@ -1,0 +1,12 @@
+#page-title {
+    margin: 0;
+    padding: 8px;
+}
+
+.notes-title {
+    color: black;
+}
+
+.notes-title:hover {
+    color: #0a43bd;
+}

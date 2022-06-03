@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block title %} - {{ note.title }}{% endblock title %}
+{% block content %}
+  <h1>{{ note.title }}</h1>
+  <p>
+    Note created: {{ note.created_date }}
+    Note edited: {{ note.edit_date }}
+  </p>
+  <p>{{ note.description|linebreaksbr }}</p>
+  <a href="{% url 'update-note' note.id %}">Update note</a>
+  <a href="{% url 'delete-note' note.id %}">Delete note</a>
+{% endblock content %}

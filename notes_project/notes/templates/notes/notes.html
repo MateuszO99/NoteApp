@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+  {% if notes %}
+    <h1 class="mb-4">Your Notes</h1>
+
+    {% for note in notes %}
+      <div class="mb-4">
+        <h3 class="mb-1"><a href="{% url 'note-detail' note.id %}" class="notes-title text-decoration-none">{{ note.title }}</a></h3>
+        <p class="mb-0">
+          Note created: {{ note.created_date }}
+          {% if note.created_date != note.edit_date %}
+            Note edited: {{ note.edit_date }}
+          {% endif %}
+        </p>
+        <p>{{ note.description|truncatechars:120 }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h1>You don't have any notes yet</h1>
+  {% endif %}
+
+{% endblock %}
